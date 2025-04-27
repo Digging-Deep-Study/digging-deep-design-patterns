@@ -1,4 +1,4 @@
-package main.kotlin.cheolhee.chapter1
+package main
 
 fun main() {
     println("Hello World!")
