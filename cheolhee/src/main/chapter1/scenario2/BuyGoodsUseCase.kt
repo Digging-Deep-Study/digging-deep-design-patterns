@@ -22,11 +22,9 @@ class BuyGoodsUseCaseImpl(
     private val discountable: Discountable,
     private val purchasable: Purchasable,
     private val payable: Payable,
+    private val noticeAlarm: Observer = NotificationAlarm(NoticeService()),
+    private val emailAlarm: Observer = EmailAlarm(email = "ekxk1234@gmail.com"),
 ) : BuyGoodsUseCase {
-
-    private val noticeAlarm: Observer = NotificationAlarm(NoticeService())
-    private val emailAlarm: Observer = EmailAlarm(email = "ekxk1234@gmail.com")
-
     override fun buy(
         buyItem: BuyItem,
         price: BigDecimal,
