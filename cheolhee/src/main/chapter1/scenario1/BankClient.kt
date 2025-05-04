@@ -8,39 +8,51 @@ interface BankClient {
 }
 
 class TossBankClient : BankClient {
+    private val bankApi = TossBankApi()
+
     override fun fetchAccount(
         card: Card,
         password: String,
     ): BankAccount {
+        val accountNumber = bankApi.fetchAccountNumber(card, password)
+
         return BankAccount(
-            accountNumber = "1234567890",
-            accountHolder = "정철희",
+            accountNumber = accountNumber,
+            accountHolder = card.cardHolder,
             bank = Bank.TOSS,
         )
     }
 }
 
 class KakaoBankClient : BankClient {
+    private val bankApi = KakaoBankApi()
+
     override fun fetchAccount(
         card: Card,
         password: String,
     ): BankAccount {
+        val accountNumber = bankApi.fetchAccountNumber(card, password)
+
         return BankAccount(
-            accountNumber = "0987654321",
-            accountHolder = "정철희",
+            accountNumber = accountNumber,
+            accountHolder = card.cardHolder,
             bank = Bank.KAKAO,
         )
     }
 }
 
 class ShinhanBankClient : BankClient {
+    private val bankApi = ShinhanBankApi()
+
     override fun fetchAccount(
         card: Card,
         password: String,
     ): BankAccount {
+        val accountNumber = bankApi.fetchAccountNumber(card, password)
+
         return BankAccount(
-            accountNumber = "1122334455",
-            accountHolder = "정철희",
+            accountNumber = accountNumber,
+            accountHolder = card.cardHolder,
             bank = Bank.SHINHAN,
         )
     }
