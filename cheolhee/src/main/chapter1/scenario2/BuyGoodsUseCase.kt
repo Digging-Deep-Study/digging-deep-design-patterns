@@ -24,8 +24,8 @@ class BuyGoodsUseCaseImpl(
     private val payable: Payable,
 ) : BuyGoodsUseCase {
 
-    private val noticeAlarm = NotificationAlarm(NoticeService())
-    private val emailAlarm = EmailAlarm(email = "ekxk1234@gmail.com")
+    private val noticeAlarm: Observer = NotificationAlarm(NoticeService())
+    private val emailAlarm: Observer = EmailAlarm(email = "ekxk1234@gmail.com")
 
     override fun buy(
         buyItem: BuyItem,
