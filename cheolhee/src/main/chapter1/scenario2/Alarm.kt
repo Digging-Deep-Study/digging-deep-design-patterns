@@ -10,7 +10,7 @@ class EmailAlarm(
     private val email: String,
 ) : Alarm, Observer {
     override fun send(message: String) {
-        println("이메일 전송: $message")
+        println("${email}로 이메일 전송: $message")
     }
 
     override fun update(goodsEntity: GoodsEntity) {
@@ -25,7 +25,7 @@ class SmsAlarm(
     override fun send(
         message: String,
     ) {
-        println("SMS 전송: $message")
+        println("${phoneNumber}로 SMS 전송: $message")
     }
 
     override fun update(goodsEntity: GoodsEntity) {
