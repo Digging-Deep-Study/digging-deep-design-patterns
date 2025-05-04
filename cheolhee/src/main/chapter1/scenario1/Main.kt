@@ -6,6 +6,7 @@ val kakaoPay = KakaoPay()
 val tossPay = TossPay()
 
 fun main() {
+    //    client에서 받아오는 값
     val myCard = Card(
         cardNumber = "1234-5678-9012-3456",
         cardHolder = "정철희",
@@ -14,15 +15,18 @@ fun main() {
         bank = Bank.TOSS,
     )
 
+    val myPassword = "정철희입니다."
+
     val toAccount = BankAccount(
         bank = Bank.KAKAO,
         accountNumber = "0987654321",
         accountHolder = "김찬우",
     )
 
+    //    비즈니스 로직
     val cardPayment = PayPal(
-        email = "cheolhee.jung@a-bly.com",
-        password = "password123",
+        email = "ekxk1234@gmail.com",
+        password = myPassword,
         toAccount = toAccount,
         paymentGateway = tossPay,
     )

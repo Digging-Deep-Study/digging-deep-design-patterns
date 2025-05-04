@@ -2,9 +2,19 @@ package main.chapter1.scenario2
 
 import main.chapter1.scenario1.*
 
-fun main() {
-    val tossPay = TossPay()
+val googlePay = GooglePay()
+val applePay = ApplePay()
+val kakaoPay = KakaoPay()
+val tossPay = TossPay()
 
+val marketAccount = BankAccount(
+    bank = Bank.TOSS,
+    accountNumber = "1234-5678-9012-3456",
+    accountHolder = "정철희",
+)
+
+fun main() {
+    //    client에서 받아오는 값
     val customerCard = Card(
         cardNumber = "1234-5678-9012-3456",
         cardHolder = "김찬우",
@@ -15,17 +25,12 @@ fun main() {
 
     val customerPassword = "김찬우입니다."
 
-    val marketAccount = BankAccount(
-        bank = Bank.TOSS,
-        accountNumber = "1234-5678-9012-3456",
-        accountHolder = "정철희",
-    )
-
     val buyItem = BuyItem(
         goodsId = 1,
         quantity = 1,
     )
 
+    //    비즈니스 로직
     val transactionTemplate = MysqlTransactionTemplate()
     val goodsService = GoodsService()
     val lockTemplate = SynchronizedLockTemplate()
