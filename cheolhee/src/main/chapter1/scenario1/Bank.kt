@@ -6,6 +6,7 @@ enum class Bank {
     SHINHAN, ;
 
     companion object {
+        @JvmStatic
         fun random() = entries.random()
     }
 }
