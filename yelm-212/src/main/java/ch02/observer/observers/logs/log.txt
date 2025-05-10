@@ -1,0 +1,5 @@
+INFO: Hello, World! at 2025-05-11T01:05:12.248010 (main) (Main) (main) (20)
+DEBUG: Hello, World! at 2025-05-11T01:05:12.311926 (main) (Main) (main) (21)
+WARNING: Hello, World! at 2025-05-11T01:05:12.312877 (main) (Main) (main) (22)
+ERROR: Hello, World! at 2025-05-11T01:05:12.313203 (main) (Main) (main) (23)
+fi
