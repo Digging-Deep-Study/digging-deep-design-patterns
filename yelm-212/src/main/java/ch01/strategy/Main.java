@@ -4,7 +4,6 @@ import java.io.*;
 import java.nio.file.Files;
 
 import ch01.strategy.compressor.*;
-import ch01.strategy.factory.*;
 
 import static ch01.strategy.factory.CompressorFactory.getCompressor;
 
