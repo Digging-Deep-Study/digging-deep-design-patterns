@@ -17,7 +17,7 @@ public enum ConfigManager {
 
     ConfigManager() {
         this.props = new Properties();
-        try (InputStream input = new FileInputStream("config.properties")) {
+        try (InputStream input = new FileInputStream("/Users/user/Developer/digging-deep-design-patterns/yelm-212/src/main/java/ch05/config.properties")) {
             props.load(input);
         } catch (IOException ex) {
             throw new RuntimeException("Failed to load config", ex);
