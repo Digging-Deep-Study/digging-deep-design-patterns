@@ -20,6 +20,8 @@ public class Main {
         commandControll.redo();
         commandControll.redo();
 
+
+
 //      커맨드 컨드롤러에 커맨드를 추가하지 않고 실행하면 예외 발생
 //      commandControll.addCommand(null);
     }

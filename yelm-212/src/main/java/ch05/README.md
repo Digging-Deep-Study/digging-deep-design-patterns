@@ -9,5 +9,6 @@
 1. `getInstance` 함수를 `synchronized`로
     - 이 경우에 효율이 안 나올때
 2. 정적 초기화로 클래스 로딩 시점부터 싱글턴 객체를 리턴하기
-3. Double-Checked Locking 써서 동기화되는 부분을 줄이기
-4. Singleton 객체를 `enum`으로 구현해서 해결할 수도 있다.
+3. Double-Checked Locking + `volatile` 써서 동기화되는 부분을 줄이기
+4. 정적 내부 클래스 
+5. Singleton 객체를 `enum`으로 구현해서 해결할 수도 있다.

@@ -13,6 +13,7 @@ public class CommandControll {
         if (command == null) {
             throw new IllegalArgumentException("Command cannot be null");
         }
+        command.execute();
         prev.push(command);
         next.clear();
     }
