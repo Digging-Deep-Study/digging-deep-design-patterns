@@ -20,30 +20,30 @@ public class Main {
         Folder root = fileSystem.getRootFolder();
 
         Folder documents = new Folder("Documents");
-        documents.add(new File("resume.pdf", 2048000)); // 2MB
-        documents.add(new File("cover_letter.docx", 51200)); // 50KB
+        documents.add(new File("resume.pdf", 2048000));
+        documents.add(new File("cover_letter.docx", 51200));
 
         Folder pictures = new Folder("Pictures");
-        pictures.add(new File("vacation.jpg", 5242880)); // 5MB
-        pictures.add(new File("family.png", 3145728)); // 3MB
+        pictures.add(new File("vacation.jpg", 5242880));
+        pictures.add(new File("family.png", 3145728));
 
         Folder vacation = new Folder("vacation");
-        vacation.add(new File("beach.jpg", 2097152)); // 2MB
-        vacation.add(new File("mountain.jpg", 1572864)); // 1.5MB
+        vacation.add(new File("beach.jpg", 2097152));
+        vacation.add(new File("mountain.jpg", 1572864));
         pictures.add(vacation);
 
         Folder projects = new Folder("projects");
 
         Folder javaProject = new Folder("JavaApp");
-        javaProject.add(new File("Main.java", 4096)); // 4KB
-        javaProject.add(new File("Utils.java", 2048)); // 2KB
-        javaProject.add(new File("README.md", 1024)); // 1KB
+        javaProject.add(new File("Main.java", 4096));
+        javaProject.add(new File("Utils.java", 2048));
+        javaProject.add(new File("README.md", 1024));
 
         projects.add(javaProject);
 
         Folder pythonProject = new Folder("PythonScript");
-        pythonProject.add(new File("app.py", 8192)); // 8KB
-        pythonProject.add(new File("requirements.txt", 512)); // 512B
+        pythonProject.add(new File("app.py", 8192));
+        pythonProject.add(new File("requirements.txt", 512));
 
         projects.add(pythonProject);
 
@@ -51,7 +51,7 @@ public class Main {
         root.add(pictures);
         root.add(projects);
 
-        root.add(new File("system.log", 10240)); // 10KB
+        root.add(new File("system.log", 10240));
 
         return fileSystem;
     }

@@ -49,7 +49,7 @@ public class NewsCategory {
         private int currentIndex;
 
         public NewsCategoryIterator(List<NewsArticle> articles) {
-            this.articles = new ArrayList<>(articles); // 방어적 복사
+            this.articles = new ArrayList<>(articles);
             this.currentIndex = 0;
         }
 

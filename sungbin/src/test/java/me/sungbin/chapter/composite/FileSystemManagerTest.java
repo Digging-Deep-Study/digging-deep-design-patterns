@@ -52,7 +52,7 @@ class FileSystemManagerTest {
         // when & then
         assertEquals(3072, fileSystem.getTotalSize());
         assertEquals(2, fileSystem.getTotalFileCount());
-        assertEquals(2, fileSystem.getTotalFolderCount()); // root + subfolder
+        assertEquals(2, fileSystem.getTotalFolderCount());
     }
 
     @Test

@@ -11,7 +11,7 @@ public class Folder extends FileSystemComponent {
 
     public Folder(String name) {
         super(name);
-        this.children = new CopyOnWriteArrayList<>(); // 스레드 안전성 고려
+        this.children = new CopyOnWriteArrayList<>();
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Folder extends FileSystemComponent {
 
     @Override
     public List<FileSystemComponent> getChildren() {
-        return new ArrayList<>(children); // 방어적 복사
+        return new ArrayList<>(children);
     }
 
     @Override
