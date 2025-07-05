@@ -32,7 +32,7 @@ public class FileSystemManager {
     }
 
     public int getTotalFolderCount() {
-        return rootFolder.getAllFolders().size() + 1; // +1 for root folder
+        return rootFolder.getAllFolders().size() + 1;
     }
 
     public void printStatistics() {

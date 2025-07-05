@@ -15,7 +15,6 @@ public class Main {
     private static NewsFeed createSampleNewsFeed() {
         NewsFeed newsFeed = new NewsFeed();
 
-        // 카테고리 생성
         newsFeed.addCategory("정치");
         newsFeed.addCategory("스포츠");
         newsFeed.addCategory("IT");
