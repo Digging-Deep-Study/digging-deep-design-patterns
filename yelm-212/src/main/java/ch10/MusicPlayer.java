@@ -27,4 +27,8 @@ public class MusicPlayer {
     public void stop() {
         state.stop(this);
     }
+
+    public String getCurrentState() {
+        return state.getClass().getSimpleName();
+    }
 }
