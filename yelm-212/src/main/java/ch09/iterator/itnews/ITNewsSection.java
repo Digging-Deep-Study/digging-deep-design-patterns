@@ -31,9 +31,12 @@ public class ITNewsSection implements Iterable<News> {
 
     public String printAllNews() {
         StringBuilder sb = new StringBuilder();
-        for (News news : this) {
+        Iterator<News> iterator = iterator();
+        while (iterator.hasNext()) {
+            News news = iterator.next();
             sb.append(news);
         }
+
         return sb.toString();
     }
 
