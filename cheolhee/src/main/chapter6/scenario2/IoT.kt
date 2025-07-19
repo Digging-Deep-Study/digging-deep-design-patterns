@@ -4,16 +4,6 @@ sealed interface Command {
     fun execute()
 }
 
-class CompositeCommand : Command {
-    private val commands = mutableListOf<Command>()
-
-    fun add(command: Command) = commands.add(command)
-
-    override fun execute() {
-        commands.forEach { it.execute() }
-    }
-}
-
 interface Device {
     var state: State
     fun turnOn()
@@ -23,6 +13,10 @@ interface Device {
 interface State {
     fun turnOn(device: Device)
     fun turnOff(device: Device)
+}
+
+interface UI {
+    fun display()
 }
 
 object OnState : State {
@@ -65,11 +59,11 @@ class Boiler : Device {
     override fun turnOff() = state.turnOff(this)
 }
 
-class TurnOnCommand(private val device: Device) : Command {
+class TurnOnCommand(val device: Device) : Command {
     override fun execute() = device.turnOn()
 }
 
-class TurnOffCommand(private val device: Device) : Command {
+class TurnOffCommand(val device: Device) : Command {
     override fun execute() = device.turnOff()
 }
 
@@ -104,12 +98,55 @@ class RemoteController : Subject {
     }
 }
 
-class MobileApp : Observer {
+class MobileApp : Observer, UI {
+    private var lastChangedState: Device? = null
+    private val light: Light = Light()
+    private val airConditioner: AirConditioner = AirConditioner()
+    private val boiler: Boiler = Boiler()
+
     override fun update(command: Command) {
         when(command) {
-            is TurnOnCommand -> command.execute()
-            is TurnOffCommand -> command.execute()
-            is CompositeCommand -> command.execute()
+            is TurnOnCommand -> {
+                when (command.device) {
+                    is Light -> light.turnOn()
+                    is AirConditioner -> airConditioner.turnOn()
+                    is Boiler -> boiler.turnOn()
+                }
+                lastChangedState = command.device
+            }
+            is TurnOffCommand -> {
+                when (command.device) {
+                    is Light -> light.turnOff()
+                    is AirConditioner -> airConditioner.turnOff()
+                    is Boiler -> boiler.turnOff()
+                }
+                lastChangedState = command.device
+            }
+        }
+        display()
+    }
+
+    override fun display() {
+        requireNotNull(lastChangedState)
+        when (lastChangedState) {
+            is Light -> {
+                when ((lastChangedState as Light).state) {
+                    is OnState -> println("불이 켜진 UI를 표시합니다")
+                    is OffState -> println("불이 꺼진 UI를 표시합니다")
+                }
+            }
+            is AirConditioner -> {
+                when ((lastChangedState as AirConditioner).state) {
+                    is OnState -> println("에어컨이 켜진 UI를 표시합니다")
+                    is OffState -> println("에어컨이 꺼진 UI를 표시합니다")
+                }
+            }
+            is Boiler -> {
+                when ((lastChangedState as Boiler).state) {
+                    is OnState -> println("보일러가 켜진 UI를 표시합니다")
+                    is OffState -> println("보일러가 꺼진 UI를 표시합니다")
+                }
+            }
         }
     }
 }
